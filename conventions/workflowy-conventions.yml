@@ -1,0 +1,58 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/api-reference/
+authentication:
+  style: API key as bearer token
+  header: 'Authorization: Bearer <YOUR_API_KEY>'
+  key_management: https://workflowy.com/api-key/
+  artifact: authentication/workflowy-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  base_url: https://workflowy.com/api/v1
+idempotency:
+  supported: false
+  notes: No idempotency-key mechanism is documented. Updates are partial (only
+    provided parameters change), but create/move/complete calls are not
+    idempotent by contract.
+pagination:
+  style: none
+  notes: List endpoints return all results in one response, unordered - clients
+    sort by the `priority` field. The export endpoint returns all nodes as a
+    flat list to be rebuilt via `parent_id` + `priority`.
+rate_limits:
+  signaling: none documented
+  limits:
+  - endpoint: GET /api/v1/nodes-export
+    limit: 1 request per minute
+    reason: potentially large response size
+request_semantics:
+  content_type: application/json
+  markdown_parsing: The `name` field parses markdown into inline HTML (**bold**,
+    *italic*, ~~strikethrough~~, `code`, links, [YYYY-MM-DD] dates) and layout
+    prefixes (#/##/### headers, - bullets, - [ ] / - [x] todos, code fences,
+    > quotes) into layoutMode values.
+  multiline_names: A single \n in `name` joins lines with a space; \n\n creates
+    separate child nodes under the first line.
+  parent_targets: parent_id accepts a full UUID, 12-character short id, node URL,
+    user-defined shortcut key, "None" (root), "inbox", or calendar targets
+    ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM",
+    "YYYY-MM-DD"). Calendar nodes are created on demand by create/move; read
+    endpoints return 404 for calendar keys that don't exist yet.
+response_semantics:
+  envelope: Mutations return {"status":"ok"} (create returns {"item_id":"..."}).
+    Reads wrap results as {"node":{...}}, {"nodes":[...]}, or {"targets":[...]}.
+  ordering: Node lists are unordered; sort client-side by `priority` (lower
+    first).
+  timestamps: createdAt / modifiedAt / completedAt are Unix timestamps.
+field_expansion: none documented
+metadata: none documented
+request_tracing: none documented
+error_handling:
+  artifact: errors/workflowy-problem-types.yml
+  notes: No structured error catalog is published; documented behaviors are 404
+    for unmaterialized calendar targets and the export rate limit.
+related:
+  lifecycle: lifecycle/workflowy-lifecycle.yml
+  authentication: authentication/workflowy-authentication.yml
+  errors: errors/workflowy-problem-types.yml

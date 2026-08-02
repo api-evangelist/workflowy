@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/help/mcp-server/
+status: published
+server:
+  name: Workflowy MCP
+  description: Workflowy MCP is a desktop app that lets you connect your Workflowy
+    account to external AI agents over the Model Context Protocol. Documented on
+    Workflowy's official help site; releases are distributed from GitHub.
+  transport: stdio
+  distribution: https://github.com/rodolfo-terriquez/workflowy-local-mcp/releases/latest
+  platforms: [macOS, Windows, Linux]
+  authentication: Workflowy API key from https://workflowy.com/api-key/
+  clients: [Claude Code, Claude Desktop, Cursor, Craft Agents, Cherry Studio]
+  docs: https://workflowy.com/help/mcp-server/
+capabilities:
+- Search your Workflowy nodes
+- Read and edit nodes in real time
+- Save bookmarks for commonly used locations
+- Connect multiple Workflowy accounts
+- Load an AI Instructions node to guide assistant behavior
+alternates:
+- name: wf mcp
+  description: The official open-source Workflowy CLI (wf) can run an embedded MCP
+    server via the `wf mcp` command.
+  docs: https://workflowy.com/help/workflowy-cli/
+  distribution: https://github.com/rodolfo-terriquez/workflowy-cli
+notes: Tool-level schemas are not published; capabilities above are the ones the
+  official docs list. The underlying REST surface is captured in
+  openapi/workflowy-api-openapi.yml.

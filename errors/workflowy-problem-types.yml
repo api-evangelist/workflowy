@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: https://workflowy.com/api-reference/ (via openapi/workflowy-api-openapi.yml)
+format: json
+notes: Workflowy does not publish a structured error catalog and does not use
+  RFC 9457 problem+json. Success envelope is {"status":"ok"}. Only the error
+  behaviors explicitly documented in the API reference are recorded here.
+problems:
+- status: 404
+  title: Calendar target not created yet
+  detail: GET /api/v1/nodes and GET /api/v1/nodes/:id return 404 for calendar
+    keys (today, YYYY-MM-DD, ...) whose nodes have not been materialized. Use
+    Create or Move (which create calendar nodes on demand) to materialize the
+    node first.
+  source_operation: openapi/workflowy-api-openapi.yml#listNodes
+- status: 401
+  title: Missing or invalid API key
+  detail: All endpoints require an Authorization Bearer API key; requests
+    without a valid key are rejected. (Status code implied by bearer
+    authentication; not explicitly enumerated in the reference.)
+  source_operation: openapi/workflowy-api-openapi.yml#createNode
+- status: 429
+  title: Export rate limit exceeded
+  detail: GET /api/v1/nodes-export is limited to 1 request per minute due to
+    potentially large response size. (Limit documented; the reference does not
+    state the status code returned.)
+  source_operation: openapi/workflowy-api-openapi.yml#exportNodes

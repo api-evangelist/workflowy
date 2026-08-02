@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/api-reference/
+docs: https://workflowy.com/api-reference/
+key_management: https://workflowy.com/api-key/
+notes: >-
+  The API reference documents a single auth mechanism - a Workflowy API key
+  sent as a bearer token ("Authorization: Bearer <YOUR_API_KEY>"). Keys are
+  generated at https://workflowy.com/api-key/. No OAuth, no scopes.
+summary:
+  types:
+  - http
+schemes:
+- name: apiKey
+  type: http
+  scheme: bearer
+  description: Workflowy API key sent as a bearer token in the Authorization header. Generate
+    a key at https://workflowy.com/api-key/.
+  sources:
+  - openapi/workflowy-api-openapi.yml

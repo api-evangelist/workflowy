@@ -1,0 +1,41 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/help/workflowy-cli/
+cli:
+  name: wf
+  description: The Workflowy CLI (wf) is an open-source command-line toolkit for
+    reading, searching, editing, automating, and connecting AI agents to
+    Workflowy. Documented on Workflowy's official help site.
+  official: true
+  repository: https://github.com/rodolfo-terriquez/workflowy-cli
+  docs: https://workflowy.com/help/workflowy-cli/
+  authentication: Workflowy API key from https://workflowy.com/api-key/ via `wf login`
+install:
+- platform: macOS / Linux
+  command: curl -fsSL https://github.com/rodolfo-terriquez/workflowy-cli/releases/latest/download/install.sh | bash
+- platform: Windows
+  command: irm https://github.com/rodolfo-terriquez/workflowy-cli/releases/latest/download/install.ps1 | iex
+commands:
+- group: Nodes
+  commands: ['node:read', 'node:add', 'node:update', 'node:move', 'node:complete']
+- group: Search
+  commands: [search, search --live]
+- group: Accounts
+  commands: ['account:list', 'account:switch', 'account:current']
+- group: Maintenance
+  commands: ['cache:sync', doctor, 'self:update']
+- group: Agents / MCP
+  commands: [mcp]
+flows:
+- name: Setup
+  steps: install -> wf login -> wf cache:sync -> wf doctor
+- name: Query
+  steps: search against the local SQLite cache, or --live for real-time results
+- name: Agent integration
+  steps: use --agent for JSON output in scripts, or run `wf mcp` as an embedded MCP server
+- name: Multiple accounts
+  steps: account:list / account:switch with separate caches per account
+locations:
+- '@inbox'
+- '@today'
+- '@tomorrow'

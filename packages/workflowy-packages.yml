@@ -1,0 +1,55 @@
+generated: '2026-07-21'
+method: searched
+source: npm registry search + workflowy.com docs + GitHub
+packages:
+- language: shell
+  registry: github-releases
+  name: workflowy-cli (wf)
+  url: https://github.com/rodolfo-terriquez/workflowy-cli
+  install: curl -fsSL https://github.com/rodolfo-terriquez/workflowy-cli/releases/latest/download/install.sh | bash
+  official: true
+  notes: Open-source Workflowy CLI documented on the official help site
+    (https://workflowy.com/help/workflowy-cli/). Distributed via GitHub releases,
+    not a package registry.
+- language: desktop
+  registry: github-releases
+  name: workflowy-local-mcp
+  url: https://github.com/rodolfo-terriquez/workflowy-local-mcp
+  install: Download the latest release for your platform from GitHub Releases
+  official: true
+  notes: Workflowy MCP desktop app documented on the official help site
+    (https://workflowy.com/help/mcp-server/).
+- language: desktop
+  registry: github-releases
+  name: workflowy/desktop
+  url: https://github.com/workflowy/desktop
+  install: Download from https://workflowy.com/download/
+  official: true
+  notes: Official Workflowy desktop app (macOS/Windows/Linux) from the workflowy
+    GitHub org.
+- language: javascript
+  registry: npm
+  name: workflowy
+  url: https://www.npmjs.com/package/workflowy
+  install: npm install workflowy
+  official: false
+  notes: Community client for reading and updating lists (maintainers mikemotif,
+    karelklima).
+- language: javascript
+  registry: npm
+  name: mcp-workflowy
+  url: https://www.npmjs.com/package/mcp-workflowy
+  install: npm install mcp-workflowy
+  official: false
+  notes: Community MCP server that lets agents talk to Workflowy (danield137).
+- language: javascript
+  registry: npm
+  name: opusfluxus
+  url: https://www.npmjs.com/package/opusfluxus
+  install: npm install opusfluxus
+  official: false
+  notes: Community NodeJS wrapper for Workflowy with a terminal client
+    (malcolmocean).
+notes: Workflowy ships no first-party SDK client libraries on package registries;
+  official developer tooling (CLI, MCP desktop app, desktop app) is distributed
+  via GitHub releases.

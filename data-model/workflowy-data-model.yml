@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/workflowy-api-openapi.yml
+entities:
+- name: Node
+  description: The fundamental unit of content - a single bullet point with text
+    (name), an optional note, a layout mode, sort priority, and completion state.
+  id_format: UUID (also addressable by 12-character short id, node URL, shortcut
+    key, or calendar target)
+  fields: [id, parent_id, name, note, priority, data.layoutMode, createdAt,
+    modifiedAt, completedAt]
+- name: Target
+  description: A named pointer to a node - system targets (inbox, today, calendar
+    keys) and user-defined shortcuts.
+  id_format: string key (e.g. "home", "inbox", "today")
+  fields: [key, type, name]
+relationships:
+- from: Node
+  to: Node
+  kind: has_many
+  via: parent_id
+  description: Nodes form a single infinitely nested tree; each node belongs_to
+    its parent via parent_id (null for top-level nodes), ordered among siblings
+    by priority.
+- from: Target
+  to: Node
+  kind: has_one
+  via: key
+  description: Each target resolves to one node; system targets exist even
+    before their node is materialized (name null until created).

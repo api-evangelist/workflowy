@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: derived
+source: https://workflowy.com/api-reference/ (via openapi/workflowy-api-openapi.yml)
+standards:
+- id: bearer-token-auth-rfc6750
+  conforms: true
+  evidence: API key sent as Authorization Bearer token on every endpoint.
+- id: oauth2
+  conforms: false
+  evidence: No OAuth 2.0 authorization server; static API keys only.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404; no OIDC surface.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are not application/problem+json; success envelope is
+    {"status":"ok"}.
+- id: pagination
+  conforms: false
+  evidence: List endpoints return all children unordered; clients sort by
+    priority. No cursor or offset pagination.
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key mechanism documented.
+- id: json:api
+  conforms: false
+  evidence: Plain JSON envelopes ({"node":...}, {"nodes":[...]}), not JSON:API.
+- id: scim
+  conforms: false
+  evidence: No SCIM user-provisioning surface.
+- id: odata
+  conforms: false
+  evidence: No OData query surface.
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset/Deprecation header support documented.

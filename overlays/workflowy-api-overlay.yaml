@@ -1,0 +1,26 @@
+overlay: 1.0.0
+x-generated: '2026-07-21'
+x-method: generated
+info:
+  title: API Evangelist enhancements for the Workflowy API
+  version: 1.0.0
+extends: openapi/workflowy-api-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: workflowy
+      profiled: '2026-07-21'
+      artifacts:
+        authentication: authentication/workflowy-authentication.yml
+        conventions: conventions/workflowy-conventions.yml
+        errors: errors/workflowy-problem-types.yml
+        lifecycle: lifecycle/workflowy-lifecycle.yml
+        data-model: data-model/workflowy-data-model.yml
+        skills: skills/_index.yml
+- target: $.paths['/nodes-export'].get
+  update:
+    x-rate-limit: 1 request per minute (documented)
+- target: $.paths['/nodes'].get
+  update:
+    x-notes: Results unordered - sort by priority; calendar keys 404 until materialized.

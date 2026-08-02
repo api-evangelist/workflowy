@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/api-reference/ + https://workflowy.com/ footer
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://workflowy.com/api-reference/
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation policy or Sunset/Deprecation header support
+    found.
+sla: null
+status_page: https://status.workflowy.com/
+changelog: https://workflowy.com/whats-new/
+deprecated_operations: []

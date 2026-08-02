@@ -1,0 +1,16 @@
+{
+  "provider": "workflowy",
+  "sources": [
+    "workflowy-nodes-api-openapi.yml",
+    "workflowy-targets-api-openapi.yml"
+  ],
+  "outputs": [
+    "workflowy-nodes-api-openapi.yml",
+    "workflowy-targets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

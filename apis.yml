@@ -1,20 +1,70 @@
 aid: workflowy
 name: Workflowy
-description: Workflowy is a company surfaced as a portfolio company of bloomberg-beta and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Workflowy is a minimalist infinite outliner for organizing notes,
+  tasks, and ideas in a single infinitely nested, zoomable bullet list, with
+  mirrors, kanban boards, real-time collaboration, an AI writing assistant, and
+  apps for web, iOS, Android, macOS, and Windows. For developers Workflowy ships
+  an official REST API (nodes and targets at workflowy.com/api/v1, API-key bearer
+  auth), an open-source CLI (wf) with an embedded MCP server, a desktop MCP app
+  for connecting AI agents like Claude and Cursor, and a published llms.txt. A
+  Bloomberg Beta portfolio company.
 url: https://raw.githubusercontent.com/api-evangelist/workflowy/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - bloomberg-beta
-x-tier: stub
+x-tier: enriched
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://workflowy.com/media/webflow/open-graph-image.png
 tags:
-- Company
-apis: []
+- Productivity
+- Notes
+- Outliner
+- Task Management
+- Lists
+- Collaboration
+- Knowledge Management
+- AI Assistant
+apis:
+- aid: workflowy:workflowy-nodes-api
+  name: Workflowy Nodes API
+  description: Create, read, update, move, complete, and delete outline nodes.
+  humanURL: https://workflowy.com/api-reference/
+  baseURL: https://workflowy.com/api/v1
+  tags:
+  - Nodes
+  properties:
+  - type: OpenAPI
+    url: openapi/workflowy-nodes-api-openapi.yml
+  - type: APIReference
+    url: https://workflowy.com/api-reference/
+- aid: workflowy:workflowy-targets-api
+  name: Workflowy Targets API
+  description: System targets and user-defined shortcuts that point at nodes.
+  humanURL: https://workflowy.com/api-reference/
+  baseURL: https://workflowy.com/api/v1
+  tags:
+  - Targets
+  properties:
+  - type: OpenAPI
+    url: openapi/workflowy-targets-api-openapi.yml
+  - type: APIReference
+    url: https://workflowy.com/api-reference/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +73,60 @@ maintainers:
 common:
 - type: Website
   url: https://workflowy.com/
+- type: Documentation
+  url: https://workflowy.com/help/
+- type: APIReference
+  url: https://workflowy.com/api-reference/
+- type: GettingStarted
+  url: https://workflowy.com/help/get-started/
+- type: Support
+  url: https://community.workflowy.com
+- type: Blog
+  url: https://blog.workflowy.com/
+- type: GitHubOrganization
+  url: https://github.com/workflowy
+- type: Pricing
+  url: https://workflowy.com/pricing/
+- type: SignUp
+  url: https://workflowy.com/signup/
+- type: Login
+  url: https://workflowy.com/login/
+- type: PrivacyPolicy
+  url: https://workflowy.com/privacy-policy/
+- type: StatusPage
+  url: https://status.workflowy.com/
+- type: ChangeLog
+  url: https://workflowy.com/whats-new/
+- type: ChangeLog
+  url: changelog/workflowy-changelog.yml
+- type: MCPServer
+  url: mcp/workflowy-mcp.yml
+- type: CLI
+  url: cli/workflowy-cli.yml
+- type: LLMsTxt
+  url: llms/workflowy-llms.txt
+- type: WellKnown
+  url: well-known/workflowy-well-known.yml
+- type: Packages
+  url: packages/workflowy-packages.yml
+- type: Authentication
+  url: authentication/workflowy-authentication.yml
+- type: Conventions
+  url: conventions/workflowy-conventions.yml
+- type: ErrorCatalog
+  url: errors/workflowy-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/workflowy-lifecycle.yml
+- type: DataModel
+  url: data-model/workflowy-data-model.yml
+- type: Conformance
+  url: conformance/workflowy-conformance.yml
+- type: DomainSecurity
+  url: security/workflowy-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 19
+  pass: local-v1

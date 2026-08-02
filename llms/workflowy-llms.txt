@@ -1,0 +1,66 @@
+# Workflowy
+
+> Workflowy is a minimalist infinite outliner for organizing notes, tasks, and ideas. It uses a single nested bullet list as its core metaphor — everything lives in one place, infinitely zoomable.
+
+Workflowy is a web-based productivity app used by writers, researchers, developers, and teams who need a fast, frictionless way to capture and structure information. Unlike traditional note-taking or project management tools, Workflowy has no pages, no databases, and no folders — just a single infinitely nested list you can zoom into, search, and share.
+
+Key capabilities: infinite nesting, mirrors (items that appear in multiple places and stay synced), kanban board view, AI writing assistant, real-time collaboration, MCP server for AI integrations (Claude, ChatGPT), tags, dates, templates, and quick capture. Available on web, iOS, Android, macOS, and Windows.
+
+Pricing: The Basic plan includes all features, 100 new nodes per month, and 100 MB of file uploads. Pro includes unlimited nodes and uploads for $8.99/month, or $6.99/month billed annually. Students, educators, and education administrators can receive one year of Pro free.
+
+## Core Pages
+
+- [Homepage](https://workflowy.com/): Overview of Workflowy — what it is, who it's for, key features, and pricing summary.
+- [Pricing](https://workflowy.com/pricing/): Free vs Pro plan comparison, FAQ on what's included, team pricing, and education discount details.
+- [What's New](https://workflowy.com/whats-new/): Full changelog of product updates — features shipped, bugs fixed, improvements made. Updated regularly.
+- [Download](https://workflowy.com/download/): Native apps for macOS, Windows, Linux, iOS, and Android, including AppImage, Debian / Ubuntu, and Fedora / Red Hat packages.
+- [Integrations](https://workflowy.com/integrations/): List of supported integrations — Zapier, Make, Slack, email, Google apps, Dropbox, and more.
+- [Templates](https://workflowy.com/templates/): Ready-to-use Workflowy templates for GTD, PARA, bullet journaling, meeting notes, project planning, and more.
+- [API Reference](https://workflowy.com/api-reference/): Official Workflowy API documentation for developers building integrations.
+- [Education Plan](https://workflowy.com/edu/): Free Pro access for students and teachers. Eligibility and signup details.
+- [List Maker](https://workflowy.com/list-maker/): Workflowy as a list-making tool — use cases, examples, and how it compares to simple to-do apps.
+
+## Productivity Methods & Use Cases
+
+- [Getting Started](https://workflowy.com/help/get-started/): Intro to Workflowy's core concepts — bullets, nesting, zoom, and search.
+- [How People Use Workflowy](https://workflowy.com/help/how-people-use-workflowy/): Real use cases across writing, research, task management, journaling, and team work.
+- [Task Management Basics](https://workflowy.com/help/task-management-basics/): How to manage tasks in Workflowy using to-do bullets, tags, and filters.
+- [PARA Method](https://workflowy.com/help/para-method/): How to implement Tiago Forte's PARA system (Projects, Areas, Resources, Archives) in Workflowy.
+- [GTD System](https://workflowy.com/help/getting-things-done/): Setting up a Getting Things Done workflow in Workflowy.
+- [Bullet Journal](https://workflowy.com/help/bullet-journal/): How to run a digital bullet journal in Workflowy — daily logs, monthly spreads, habit tracking.
+- [Build a Second Brain](https://workflowy.com/help/build-a-second-brain/): Using Workflowy as a personal knowledge management system.
+- [Kanban Board](https://workflowy.com/help/kanban-board/): Turning any Workflowy list into a visual kanban board with column-based views.
+- [Checklist](https://workflowy.com/help/checklist/): Creating reusable checklists in Workflowy for repeatable processes.
+- [Meeting Notes](https://workflowy.com/help/meeting-notes/): Using Workflowy to capture, organize, and share meeting notes.
+- [Time Blocking](https://workflowy.com/help/time-blocking/): Planning your day with time blocks inside Workflowy.
+- [Pomodoro Technique](https://workflowy.com/help/pomodoro-technique/): Running Pomodoro focus sessions with Workflowy as your task list.
+
+## Key Features
+
+- [Mirrors](https://workflowy.com/help/mirrors/): How mirrors work — making a bullet appear in multiple locations while staying synced everywhere.
+- [Tags & Dates](https://workflowy.com/help/tags-dates/): Using #hashtags and @mentions to filter, assign, and organize content.
+- [Search](https://workflowy.com/help/search/): Full-text search, tag filtering, and nested search to find anything instantly.
+- [Workflowy AI](https://workflowy.com/help/workflowy-ai/): Built-in AI writing assistant — brainstorm, rewrite, summarize, and expand bullets.
+- [Sharing & Collaboration](https://workflowy.com/help/share-collaborate/): Sharing lists publicly or with specific collaborators, permission levels, real-time editing.
+- [Templates](https://workflowy.com/help/templates/): Creating, saving, and reusing templates inside Workflowy.
+- [Quick Capture](https://workflowy.com/help/quick-capture/): Sending items to Workflowy from other apps via share sheet, email, or keyboard shortcut.
+- [Voice Memo Transcription](https://workflowy.com/help/voice-memo-transcription/): Recording voice memos that are automatically transcribed into bullets.
+- [Calendar](https://workflowy.com/help/calendar/): Using Workflowy's built-in calendar view to plan and visualize dated items.
+- [Keyboard Shortcuts](https://workflowy.com/help/hotkeys/): Full list of keyboard shortcuts for power users.
+
+## Localized Feature Documentation
+
+- [Funciones — Español](https://workflowy.com/help/es/boards/): Spanish-language Workflowy feature documentation, with links to every translated feature guide.
+- [Fonctionnalités — Français](https://workflowy.com/help/fr/boards/): French-language Workflowy feature documentation, with links to every translated feature guide.
+- [機能 — 日本語](https://workflowy.com/help/ja/boards/): Japanese-language Workflowy feature documentation, with links to every translated feature guide.
+- [기능 — 한국어](https://workflowy.com/help/ko/boards/): Korean-language Workflowy feature documentation, with links to every translated feature guide.
+
+## AI & Developer Integrations
+
+- [Workflowy CLI](https://workflowy.com/help/workflowy-cli/): Open-source command-line toolkit for reading, searching, editing, automating, and connecting AI agents to Workflowy.
+- [MCP Server](https://workflowy.com/help/mcp-server/): Workflowy's Model Context Protocol server — connect Workflowy directly to Claude Desktop, Cursor, and other MCP-compatible AI tools.
+- [Claude Desktop Integration](https://workflowy.com/help/claude-desktop/): Step-by-step setup for using Workflowy as a context source inside Claude Desktop.
+- [ChatGPT Integration](https://workflowy.com/help/chatgpt/): Connecting Workflowy to ChatGPT via integrations and plugins.
+- [API Reference](https://workflowy.com/api-reference/): REST API documentation for reading and writing Workflowy data programmatically.
+- [Connect Other Apps via API](https://workflowy.com/help/connect-other-apps-api/): Using the Workflowy API with Zapier, Make, and custom scripts.
+- [Zapier / Make Integrations](https://workflowy.com/integrations/): Automating Workflowy with Zapier, Make, and other no-code tools.

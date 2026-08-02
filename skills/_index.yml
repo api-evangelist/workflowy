@@ -1,0 +1,15 @@
+generated: '2026-07-21'
+method: generated
+skills:
+- file: workflowy-capture-to-inbox.md
+  name: Capture notes and tasks to the Workflowy Inbox
+  api: openapi/workflowy-api-openapi.yml
+  operations: [createNode, listTargets]
+- file: workflowy-plan-today.md
+  name: Plan and work today's tasks in Workflowy
+  api: openapi/workflowy-api-openapi.yml
+  operations: [listNodes, createNode, completeNode, uncompleteNode, moveNode, updateNode]
+- file: workflowy-export-outline.md
+  name: Export and rebuild a full Workflowy outline
+  api: openapi/workflowy-api-openapi.yml
+  operations: [exportNodes, getNode]

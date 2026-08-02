@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+source: https://workflowy.com/whats-new/
+scheme: dated entries (feature releases and fixes by date)
+entries:
+- date: '2026-06-30'
+  kind: feature
+  highlights: Tables - convert nodes into lightweight structured tables for plans and databases.
+- date: '2026-05-27'
+  kind: feature
+  highlights: Timeline - Calendar integration to view the next 30 days and schedule items.
+- date: '2026-04-21'
+  kind: feature
+  highlights: Google Calendar Sync - connect external calendars to Workflowy for unified planning.
+- date: '2026-03-11'
+  kind: feature
+  highlights: Email to Workflowy - send notes directly via unique email addresses to specific nodes.
+- date: '2026-02-04'
+  kind: feature
+  highlights: Quick Add for Android - rapid capture via app-icon long-press or widget.
+- date: '2026-01-22'
+  kind: feature
+  highlights: Drag and drop across browser tabs - move nodes between tabs.
+- date: '2025-12-03'
+  kind: feature
+  highlights: Numbered List item type with automatic numbering and custom formatting.
+- date: '2025-11-19'
+  kind: feature
+  highlights: Found Dates - matching date tags from across the account shown in Calendar view.
