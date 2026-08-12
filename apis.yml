@@ -71,6 +71,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/workflowy-api-overlay.yaml
 - type: Website
   url: https://workflowy.com/
 - type: Documentation
