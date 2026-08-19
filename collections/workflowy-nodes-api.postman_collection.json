@@ -1,0 +1,976 @@
+{
+  "item": [
+    {
+      "id": "74cd1127-529f-41cc-a216-af42b9385c83",
+      "name": "Nodes",
+      "description": {
+        "content": "Create, read, update, move, complete, and delete outline nodes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b16624d-b6c5-4899-863a-963720fd2c76",
+          "name": "Create a node",
+          "request": {
+            "name": "Create a node",
+            "description": {
+              "content": "Creates a new node under the given parent. Calendar nodes are created on demand if they don't exist yet. Markdown in `name` is parsed into inline HTML and layout modes; multiline `name` text creates child nodes (`\\n` joins into a space, `\\n\\n` creates separate children).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"parent_id\": \"<string>\",\n  \"layoutMode\": \"<string>\",\n  \"note\": \"<string>\",\n  \"position\": \"top\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e7e532ce-f527-410b-bcc5-164685e8010e",
+              "name": "Node created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"parent_id\": \"inbox\",\n  \"name\": \"Hello API\",\n  \"position\": \"top\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"item_id\": \"5b401959-4740-4e1a-905a-62a961daa8c9\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0a5f68a-7800-4528-bcea-1e459161fbca",
+          "name": "List nodes",
+          "request": {
+            "name": "List nodes",
+            "description": {
+              "content": "Returns a list of child nodes for a given parent. Nodes are returned unordered - sort them yourself based on the `priority` field. Calendar keys return 404 if the node hasn't been created yet; use Create or Move to materialize it first.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "parent_id",
+                  "value": "<string>",
+                  "description": "Whose children to list. Accepts a full node id, 12-character short id, node URL, a shortcut key, \"None\" (root), \"inbox\", or calendar targets (calendar, today, tomorrow, next_week, YYYY, YYYY-MM, YYYY-MM-DD)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc5e3c2e-12c7-4d31-a638-b621fcbe9c83",
+              "name": "Child nodes (unordered).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "parent_id",
+                      "value": "inbox"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nodes\": [\n    {\n      \"id\": \"string\",\n      \"parent_id\": \"string\",\n      \"name\": \"string\",\n      \"note\": \"string\",\n      \"priority\": 3482.4924388237446,\n      \"data\": {\n        \"layoutMode\": \"h1\"\n      },\n      \"createdAt\": 9153.517336780054,\n      \"modifiedAt\": 4282.49503600883,\n      \"completedAt\": 8542.682520224274\n    },\n    {\n      \"id\": \"string\",\n      \"parent_id\": \"string\",\n      \"name\": \"string\",\n      \"note\": \"string\",\n      \"priority\": 7860.877328576204,\n      \"data\": {\n        \"layoutMode\": \"code-block\"\n      },\n      \"createdAt\": 9989.331793929257,\n      \"modifiedAt\": 5827.609074954468,\n      \"completedAt\": 4990.077511337403\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4ed7cf5f-520a-4450-a0b8-e95ea71883ff",
+              "name": "Calendar key target that has not been created yet.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "parent_id",
+                      "value": "inbox"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f34e1e27-3460-4a3c-9335-e737345ea444",
+          "name": "Update a node",
+          "request": {
+            "name": "Update a node",
+            "description": {
+              "content": "Updates the specified node by setting the values of the parameters passed. Any parameters not provided are left unchanged. Markdown in `name` is parsed into inline HTML and layout modes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"layoutMode\": \"<string>\",\n  \"note\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7de982d4-f88c-43cb-bb72-cd39628f7d67",
+              "name": "Operation succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Updated node title\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "54f57e3c-be9d-46df-933b-7cef0813063e",
+          "name": "Retrieve a node",
+          "request": {
+            "name": "Retrieve a node",
+            "description": {
+              "content": "Retrieves the details of an existing node. Supply either the full node ID, short node ID, or an existing calendar target (calendar, today, tomorrow, next_week, YYYY, YYYY-MM, YYYY-MM-DD). Calendar targets resolve existing calendar structure nodes and do not create missing nodes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d27998aa-3348-4aad-967d-4eb10dd15a4c",
+              "name": "The node.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"node\": {\n    \"id\": \"string\",\n    \"parent_id\": \"string\",\n    \"name\": \"string\",\n    \"note\": \"string\",\n    \"priority\": 1660.1114383150384,\n    \"data\": {\n      \"layoutMode\": \"h3\"\n    },\n    \"createdAt\": 9775.591360416567,\n    \"modifiedAt\": 8035.828709248582,\n    \"completedAt\": 1775.4929682699205\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4cc0e3dc-036f-472f-8bc4-498cfc398b5a",
+          "name": "Delete a node",
+          "request": {
+            "name": "Delete a node",
+            "description": {
+              "content": "Permanently deletes a node. This cannot be undone.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "667b6fbb-5b87-4778-8c5c-193a42ee569b",
+              "name": "Operation succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9b9ad24-e1d2-446e-aba4-1fe09a2efb86",
+          "name": "Move a node",
+          "request": {
+            "name": "Move a node",
+            "description": {
+              "content": "Relocates a node to a different parent. Calendar nodes are created on demand if they don't exist yet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id",
+                "move"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parent_id\": \"<string>\",\n  \"position\": \"top\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7daa9af3-7bea-4c27-906b-b4203a874aba",
+              "name": "Operation succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id",
+                    "move"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"parent_id\": \"inbox\",\n  \"position\": \"top\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c4e483a-0593-4e71-95dc-02ab28319cc3",
+          "name": "Complete a node",
+          "request": {
+            "name": "Complete a node",
+            "description": {
+              "content": "Marks a node as completed. Sets the completion timestamp and updates the node's status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id",
+                "complete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e633d137-072a-4cf3-9683-37f849342c63",
+              "name": "Operation succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id",
+                    "complete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "678f4e70-7e4e-4937-b88a-ebb34fc909c6",
+          "name": "Uncomplete a node",
+          "request": {
+            "name": "Uncomplete a node",
+            "description": {
+              "content": "Marks a node as not completed. Removes the completion timestamp and updates the node's status.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes",
+                ":id",
+                "uncomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b018d0f-0aca-4e09-a3f8-9355740eac8d",
+              "name": "Operation succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes",
+                    ":id",
+                    "uncomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) The node ID, 12-character short ID, or calendar target."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b480d2b-d199-4e1e-a344-f0018a390c6b",
+          "name": "Export all nodes",
+          "request": {
+            "name": "Export all nodes",
+            "description": {
+              "content": "Returns all of the user's nodes as a flat list. Each node includes its `parent_id` field to reconstruct the hierarchy. Nodes are returned unordered - build the tree yourself from `parent_id` and `priority`. Rate limit: 1 request per minute due to potentially large response size.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "nodes-export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea92fb29-2b3b-4e5e-92a3-f733ea19b29b",
+              "name": "All nodes as a flat list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "nodes-export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nodes\": [\n    {\n      \"id\": \"string\",\n      \"parent_id\": \"string\",\n      \"name\": \"string\",\n      \"note\": \"string\",\n      \"priority\": 4293.284855474395,\n      \"data\": {\n        \"layoutMode\": \"h1\"\n      },\n      \"createdAt\": 571.362155096582,\n      \"modifiedAt\": 1852.6307879643366,\n      \"completedAt\": 7437.693022393225,\n      \"completed\": false\n    },\n    {\n      \"id\": \"string\",\n      \"parent_id\": \"string\",\n      \"name\": \"string\",\n      \"note\": \"string\",\n      \"priority\": 4696.4354017925325,\n      \"data\": {\n        \"layoutMode\": \"quote-block\"\n      },\n      \"createdAt\": 387.4701018062665,\n      \"modifiedAt\": 512.4190521985162,\n      \"completedAt\": 7459.486462171151,\n      \"completed\": false\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://workflowy.com/api/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "74700815-af3d-4007-85c7-f4c10951fee0",
+    "name": "Workflowy Nodes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Official Workflowy REST API for reading and writing Workflowy data programmatically. A node is the fundamental unit of content in Workflowy - each node is a single bullet point that can contain text, have child nodes, and be organized hierarchically. Targets provide quick access to specific nodes, including system targets (like \"inbox\") and user-defined shortcuts. This OpenAPI document was generated by API Evangelist from the official API reference at https://workflowy.com/api-reference/ - Workflowy does not publish its own machine-readable spec.\n\nContact Support:\n Name: Workflowy",
+      "type": "text/plain"
+    }
+  }
+}

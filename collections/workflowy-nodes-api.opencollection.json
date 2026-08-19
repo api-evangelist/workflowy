@@ -1,0 +1,191 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workflowy Nodes API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Nodes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://workflowy.com/api/v1/nodes",
+            "params": [
+              {
+                "name": "parent_id",
+                "value": "inbox",
+                "type": "query",
+                "description": "Whose children to list. Accepts a full node id, 12-character short id, node URL, a shortcut key, \"None\" (root), \"inbox\", or calendar targets (calendar, today, tomorrow, next_week, YYYY, YYYY-MM, YYYY-MM-DD)."
+              }
+            ]
+          },
+          "docs": "Returns a list of child nodes for a given parent. Nodes are returned unordered - sort them yourself based on the `priority` field. Calendar keys return 404 if the node hasn't been created yet; use Create or Move to materialize it first."
+        },
+        {
+          "info": {
+            "name": "Create a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://workflowy.com/api/v1/nodes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new node under the given parent. Calendar nodes are created on demand if they don't exist yet. Markdown in `name` is parsed into inline HTML and layout modes; multiline `name` text creates child nodes (`\\n` joins into a space, `\\n\\n` creates separate children)."
+        },
+        {
+          "info": {
+            "name": "Retrieve a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://workflowy.com/api/v1/nodes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ]
+          },
+          "docs": "Retrieves the details of an existing node. Supply either the full node ID, short node ID, or an existing calendar target (calendar, today, tomorrow, next_week, YYYY, YYYY-MM, YYYY-MM-DD). Calendar targets resolve existing calendar structure nodes and do not create missing nodes."
+        },
+        {
+          "info": {
+            "name": "Update a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://workflowy.com/api/v1/nodes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the specified node by setting the values of the parameters passed. Any parameters not provided are left unchanged. Markdown in `name` is parsed into inline HTML and layout modes."
+        },
+        {
+          "info": {
+            "name": "Delete a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://workflowy.com/api/v1/nodes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ]
+          },
+          "docs": "Permanently deletes a node. This cannot be undone."
+        },
+        {
+          "info": {
+            "name": "Move a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://workflowy.com/api/v1/nodes/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Relocates a node to a different parent. Calendar nodes are created on demand if they don't exist yet."
+        },
+        {
+          "info": {
+            "name": "Complete a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://workflowy.com/api/v1/nodes/:id/complete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ]
+          },
+          "docs": "Marks a node as completed. Sets the completion timestamp and updates the node's status."
+        },
+        {
+          "info": {
+            "name": "Uncomplete a node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://workflowy.com/api/v1/nodes/:id/uncomplete",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The node ID, 12-character short ID, or calendar target."
+              }
+            ]
+          },
+          "docs": "Marks a node as not completed. Removes the completion timestamp and updates the node's status."
+        },
+        {
+          "info": {
+            "name": "Export all nodes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://workflowy.com/api/v1/nodes-export"
+          },
+          "docs": "Returns all of the user's nodes as a flat list. Each node includes its `parent_id` field to reconstruct the hierarchy. Nodes are returned unordered - build the tree yourself from `parent_id` and `priority`. Rate limit: 1 request per minute due to potentially large response size."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

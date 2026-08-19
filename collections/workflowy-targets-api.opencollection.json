@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Workflowy Nodes Targets API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Targets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://workflowy.com/api/v1/targets"
+          },
+          "docs": "Returns all available targets, including user-defined shortcuts (like \"home\") and system targets (like \"inbox\"). System targets are always returned, even if the target node hasn't been created yet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
