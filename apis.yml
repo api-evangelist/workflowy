@@ -69,6 +69,8 @@ apis:
   humanURL: https://workflowy.com/api-reference/
   baseURL: https://workflowy.com/api/v1
   tags:
+  - Node
+  tags_raw:
   - Nodes
   properties:
   - type: OpenAPI
