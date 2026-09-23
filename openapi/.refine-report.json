@@ -1,8 +1,7 @@
 {
   "provider": "workflowy",
   "sources": [
-    "workflowy-nodes-api-openapi.yml",
-    "workflowy-targets-api-openapi.yml"
+    "_ae-authored/workflowy-api-openapi.yml"
   ],
   "outputs": [
     "workflowy-nodes-api-openapi.yml",
@@ -12,9 +11,12 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "workflowy-nodes-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "workflowy-targets-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "workflowy-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "workflowy-nodes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "workflowy-targets-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
