@@ -222,6 +222,21 @@ paths:
                       $ref: '#/components/schemas/ExportNode'
 components:
   schemas:
+    LayoutMode:
+      type: string
+      description: Display mode of the node.
+      enum:
+      - bullets
+      - todo
+      - h1
+      - h2
+      - h3
+      - code-block
+      - quote-block
+    ParentTarget:
+      type: string
+      description: A parent reference - full node id, 12-character short id, node URL, a user-defined shortcut key, "None" (root), "inbox", or calendar targets ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM", "YYYY-MM-DD").
+      example: inbox
     Node:
       type: object
       description: A node is a single bullet point that can contain text, have child nodes, and be organized hierarchically.
@@ -280,21 +295,6 @@ components:
           completed:
             type: boolean
             description: Whether the node is completed (export endpoint only).
-    ParentTarget:
-      type: string
-      description: A parent reference - full node id, 12-character short id, node URL, a user-defined shortcut key, "None" (root), "inbox", or calendar targets ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM", "YYYY-MM-DD").
-      example: inbox
-    LayoutMode:
-      type: string
-      description: Display mode of the node.
-      enum:
-      - bullets
-      - todo
-      - h1
-      - h2
-      - h3
-      - code-block
-      - quote-block
   parameters:
     nodeId:
       name: id

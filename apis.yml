@@ -51,7 +51,7 @@ tags:
 - Task Management
 - List
 - Collaboration
-- Knowledge-Management
+- Knowledge Management
 - AI Assistant
 tags_raw:
 - Productivity
@@ -62,6 +62,7 @@ tags_raw:
 - Collaboration
 - Knowledge Management
 - AI Assistant
+- Knowledge-Management
 apis:
 - aid: workflowy:workflowy-nodes-api
   name: Workflowy Nodes API
