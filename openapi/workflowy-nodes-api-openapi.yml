@@ -221,6 +221,14 @@ paths:
                     items:
                       $ref: '#/components/schemas/ExportNode'
 components:
+  parameters:
+    nodeId:
+      name: id
+      in: path
+      required: true
+      description: The node ID, 12-character short ID, or calendar target.
+      schema:
+        type: string
   schemas:
     LayoutMode:
       type: string
@@ -233,6 +241,14 @@ components:
       - h3
       - code-block
       - quote-block
+    ExportNode:
+      allOf:
+      - $ref: '#/components/schemas/Node'
+      - type: object
+        properties:
+          completed:
+            type: boolean
+            description: Whether the node is completed (export endpoint only).
     ParentTarget:
       type: string
       description: A parent reference - full node id, 12-character short id, node URL, a user-defined shortcut key, "None" (root), "inbox", or calendar targets ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM", "YYYY-MM-DD").
@@ -287,22 +303,6 @@ components:
         createdAt: 1753120779
         modifiedAt: 1753120850
         completedAt: null
-    ExportNode:
-      allOf:
-      - $ref: '#/components/schemas/Node'
-      - type: object
-        properties:
-          completed:
-            type: boolean
-            description: Whether the node is completed (export endpoint only).
-  parameters:
-    nodeId:
-      name: id
-      in: path
-      required: true
-      description: The node ID, 12-character short ID, or calendar target.
-      schema:
-        type: string
   responses:
     StatusOk:
       description: Operation succeeded.
