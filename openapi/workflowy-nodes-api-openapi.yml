@@ -229,6 +229,18 @@ components:
       description: The node ID, 12-character short ID, or calendar target.
       schema:
         type: string
+  responses:
+    StatusOk:
+      description: Operation succeeded.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: string
+          example:
+            status: ok
   schemas:
     LayoutMode:
       type: string
@@ -249,10 +261,6 @@ components:
           completed:
             type: boolean
             description: Whether the node is completed (export endpoint only).
-    ParentTarget:
-      type: string
-      description: A parent reference - full node id, 12-character short id, node URL, a user-defined shortcut key, "None" (root), "inbox", or calendar targets ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM", "YYYY-MM-DD").
-      example: inbox
     Node:
       type: object
       description: A node is a single bullet point that can contain text, have child nodes, and be organized hierarchically.
@@ -303,18 +311,10 @@ components:
         createdAt: 1753120779
         modifiedAt: 1753120850
         completedAt: null
-  responses:
-    StatusOk:
-      description: Operation succeeded.
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              status:
-                type: string
-          example:
-            status: ok
+    ParentTarget:
+      type: string
+      description: A parent reference - full node id, 12-character short id, node URL, a user-defined shortcut key, "None" (root), "inbox", or calendar targets ("calendar", "today", "tomorrow", "next_week", "YYYY", "YYYY-MM", "YYYY-MM-DD").
+      example: inbox
   securitySchemes:
     apiKey:
       type: http
