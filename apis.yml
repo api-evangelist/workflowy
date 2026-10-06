@@ -42,7 +42,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-21'
+modified: '2026-10-06'
 image: https://workflowy.com/media/webflow/open-graph-image.png
 tags:
 - Productivity
@@ -96,6 +96,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://blog.workflowy.com/feed/
+  type: BlogRSS
 - type: Overlay
   url: overlays/workflowy-api-overlay.yaml
 - type: Website
